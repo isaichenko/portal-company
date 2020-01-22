@@ -1,8 +1,14 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:edit, :show, :update, :destroy]
+  before_action :all_employees, only: [:index, :table, :tiles]
 
   def index
-    @employees = Employee.all.order("ASC")
+  end
+
+  def table
+  end
+
+  def tiles
   end
 
   def new
@@ -50,8 +56,12 @@ class EmployeesController < ApplicationController
   end
 
   private
-    def set_emploee
-      @employee = Emploee.find(params[:id])
+    def set_employee
+      @employee = Employee.find(params[:id])
+    end
+
+    def all_employees
+      @employees = Employee.all.order(:last_name)
     end
 
     def employee_params

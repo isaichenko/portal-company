@@ -1,0 +1,20 @@
+<h2>Плиточный вид</h2>
+
+<div class="row row-cols-1 row-cols-md-4">
+  <% @employees.each do |employee| %>
+  <div class="col mb-4">
+    <div class="card text-white bg-dark">
+      <div align="center">
+        <%= image_tag employee.avatar.to_s, class: "card-img-top" %>
+      </div>
+      <!--<img src="..." class="card-img-top" alt="...">-->
+      <div class="card-body" align="center">
+        <h4 class="card-title"><%= employee.last_name %> <%= employee.first_name %> <%= employee.patronymic %> </h4>
+        <p class="card-text"><%= employee.position %></p>
+        <p class="card-text"><%= employee.mobile_phone1 %></p>
+        <p class="card-text"><%= employee.email %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

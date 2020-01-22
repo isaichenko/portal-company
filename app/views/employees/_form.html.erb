@@ -8,63 +8,69 @@
     </ul>
   <% end %>
 
-  <div class="form">
-    <%= form.label :"Имя" %>
-    <%= form.text_field :first_name, class: 'form-control' %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form">
+      <%= form.label :"Имя" %>
+      <%= form.text_field :first_name, class: 'form-control' %>
+    </div>
+
+    <div class="form">
+      <%= form.label :"Отчество" %>
+      <%= form.text_field :patronymic, class: 'form-control' %>
+    </div>
+
+    <div class="form">
+      <%= form.label :"Фамилия" %>
+      <%= form.text_field :last_name, class: 'form-control' %>
+    </div>
+
+    <div class="form">
+      <%= form.label :"Мобильный (Vodafone)" %>
+      <%= form.number_field :mobile_phone1, class: 'form-control' %>
+    </div>
+
+    <div class="form">
+      <%= form.label :"Мобильный (Киевстар)" %>
+      <%= form.number_field :mobile_phone2, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="form">
-    <%= form.label :"Отчество" %>
-    <%= form.text_field :patronymic, class: 'form-control' %>
-  </div>
+  <div class="col-md-6">
+    <div class="form">
+      <%= form.label :"IP-телефон" %>
+      <%= form.number_field :ip_phone, class: 'form-control' %>
+    </div>
 
-  <div class="form">
-    <%= form.label :"Фамилия" %>
-    <%= form.text_field :last_name, class: 'form-control' %>
-  </div>
+    <div class="form">
+      <%= form.label :"Электронная почта" %>
+      <%= form.text_field :email, class: 'form-control' %>
+    </div>
 
-  <div class="form">
-    <%= form.label :"Мобильный (Vodafone)" %>
-    <%= form.number_field :mobile_phone1, class: 'form-control' %>
-  </div>
+    <div class="form">
+      <%= form.label :"Дата рождения" %>
+      <%= form.text_field :birthday, class: 'form-control' %>
+    </div>
 
-  <div class="form">
-    <%= form.label :"Мобильный (Киевстар)" %>
-    <%= form.number_field :mobile_phone2, class: 'form-control' %>
-  </div>
+    <div class="form">
+      <%= form.label :"Должность" %>
+      <%= form.text_field :position, class: 'form-control' %>
+    </div>
 
-  <div class="form">
-    <%= form.label :"IP-телефон" %>
-    <%= form.number_field :ip_phone, class: 'form-control' %>
-  </div>
+    <div class="form">
+      <%= form.label :"Отдел" %>
+      <%= form.text_field :department, class: 'form-control' %>
+    </div>
 
-  <div class="form">
-    <%= form.label :"Электронная почта" %>
-    <%= form.text_field :email, class: 'form-control' %>
-  </div>
+    <div class="form">
+      <%= form.label :"Фото" %>
+      <%= form.file_field :avatar %>
+    </div>
 
-  <div class="form">
-    <%= form.label :"Дата рождения" %>
-    <%= form.text_field :birthday, class: 'form-control' %>
+    <div class="form-group">
+      <%= form.submit "Submit", class: 'btn btn-primary' %>
+    </div>
   </div>
-
-  <div class="form">
-    <%= form.label :"Должность" %>
-    <%= form.text_field :position, class: 'form-control' %>
-  </div>
-
-  <div class="form">
-    <%= form.label :"Отдел" %>
-    <%= form.text_field :department, class: 'form-control' %>
-  </div>
-
-  <div class="form">
-    <%= form.label :"Фото" %>
-    <%= form.file_field :avatar %>
-  </div>
-
-  <div class="form-group">
-    <%= form.submit "Submit", class: 'btn btn-primary' %>
-  </div>
+</div>
 
 <% end %>
