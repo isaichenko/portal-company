@@ -1,17 +1,22 @@
 <h2>Плиточный вид</h2>
 
-<div class="row row-cols-1 row-cols-md-4">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
   <% @employees.each do |employee| %>
   <div class="col mb-4">
     <div class="card text-white bg-dark">
       <div align="center">
-        <%= image_tag employee.avatar.to_s, class: "card-img-top" %>
+        <% if employee.avatar.present? %>
+          <%= image_tag employee.avatar.to_s, class: "card-img-top" %>
+        <% else %>
+          <%= image_tag "empty_avatar", class: "card-img-top" %>
+        <% end %>
       </div>
       <!--<img src="..." class="card-img-top" alt="...">-->
       <div class="card-body" align="center">
-        <h4 class="card-title"><%= employee.last_name %> <%= employee.first_name %> <%= employee.patronymic %> </h4>
+        <h4 class="card-title"><%= employee.last_name.capitalize() if employee.last_name.present? %> <%= employee.first_name.capitalize() if employee.first_name.present? %> <%= employee.patronymic.capitalize() if employee.patronymic.present? %> </h4>
         <p class="card-text"><%= employee.position %></p>
         <p class="card-text"><%= employee.mobile_phone1 %></p>
+        <p class="card-text"><%= employee.mobile_phone2 %></p>
         <p class="card-text"><%= employee.email %></p>
       </div>
     </div>

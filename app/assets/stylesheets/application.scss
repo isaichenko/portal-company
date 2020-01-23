@@ -137,17 +137,24 @@ body {
   margin: 5px;
 }
 
+.active {
+  color: #ff9933;
+  border-color: white;
+  border-style: dotted;
+  font-size: 1.2rem;
+}
+
 .btn-main:hover {
   border-style: dashed;
   color: white;
   font-weight:bold;
 }
 
-.btn-main:active {
+/*.btn-main:active {
   color: #ff9933;
   border-color: white;
   border-style: dotted;
-}
+}*/
 
 .nav-bar-round {
   padding: 10px;
@@ -170,6 +177,13 @@ body {
 
 .color-white {
   color: white;
+}
+
+.search-icon {
+  color: white;
+  width: 40px;
+  height: 38px;
+  background-color: #ff9933;
 }
 
 .border-bottom {

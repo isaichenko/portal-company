@@ -5,6 +5,25 @@ class EmployeesController < ApplicationController
   def index
   end
 
+  def ip_phone
+    @employees = Employee.ip_phone.order(:ip_phone)
+  end
+
+  def search
+    if params[:search].blank?
+      redirect_to(root_path, notice: "Empty field!") and return
+    else
+      @parameter = params[:search].downcase
+      #@results = Employee.all.where("lower(last_name) LIKE :search", search: @parameter)
+      @results = Employee.all.where('last_name LIKE :search OR
+                                 mobile_phone1 LIKE :search OR
+                                 mobile_phone2 LIKE :search OR
+                                 first_name LIKE :search OR
+                                 patronymic LIKE :search',
+                                 search: "%#{@parameter}%")
+    end
+  end
+
   def table
   end
 

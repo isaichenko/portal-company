@@ -1,23 +1,21 @@
 <h2>Табличный вид</h2>
 
-<table class="table color-white table-responsive">
+<table class="table color-white">
   <thead>
     <tr>
+      <!--<th scope="col">#</th>-->
       <th scope="col">Должность</th>
       <th scope="col">ФИО</th>
-      <th scope="col">Электронный адрес</th>
-      <th scope="col">Телефон</th>
-      <th scope="col">Дата рождения</th>
+      <th scope="col">IP номер</th>
     </tr>
   </thead>
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
+        <!--<th scope="row"><%# employee.id %></th>-->
         <td><%= employee.position %></td>
         <td><%= employee.last_name.capitalize() if employee.last_name.present? %> <%= employee.first_name.capitalize() if employee.first_name.present? %> <%= employee.patronymic.capitalize() if employee.patronymic.present? %></td>
-        <td><%= employee.email %></td>
-        <td><%= employee.mobile_phone1 %> <%= employee.mobile_phone2 %></td>
-        <td><%= employee.birthday %></td>
+        <td><%= employee.ip_phone %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,9 +1,12 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">Сотрудники Группы Компаний ДОЛИНА</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
-    <div class="btn-group mr-2">
-      <%= link_to (fa_icon "th"), tiles_path, class: "fa-lg custom-icon" %>&nbsp;&nbsp;
-      <%= link_to (fa_icon "list"), table_path, class: "fa-lg custom-icon" %>
+    <div class="btn-group mr-2" onload="display_ct();">
+      <%# Time.now.strftime("%m/%d/%Y") %>
+      <%# Time.now.strftime("%d %B") %>
+      <em><div id="clockbox" style="color: #ff9933;"></div></em>
+      <%# link_to (fa_icon "th"), tiles_path, class: "fa-lg custom-icon" %><!--&nbsp;&nbsp;-->
+      <%# link_to (fa_icon "list"), table_path, class: "fa-lg custom-icon" %>
       <!--<button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
       <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
     </div>
@@ -13,3 +16,19 @@
     </button>-->
   </div>
 </div>
+
+<script type="text/javascript">
+  function GetClock(){
+  var d=new Date();
+  var nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+  var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
+  if(nmin<=9) nmin="0"+nmin;
+  if(nsec<=9) nsec="0"+nsec;
+
+  var clocktext=""+ndate+"-"+(nmonth+1)+"-"+nyear+" "+nhour+":"+nmin+":"+nsec+"";
+  document.getElementById('clockbox').innerHTML=clocktext;
+  }
+
+  GetClock();
+  setInterval(GetClock,1000);
+</script>
