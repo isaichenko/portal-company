@@ -1,29 +1,18 @@
-
-
-<h2>Табличный вид</h2>
+<h2>Именинники в этом месяце</h2>
 
 <table class="table color-white">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Должность</th>
       <th scope="col">ФИО</th>
-      <th scope="col">Электронный адрес</th>
-      <th scope="col">Телефон</th>
       <th scope="col">Дата рождения</th>
     </tr>
   </thead>
   <tbody>
-    <% @employees.each do |employee| %>
+    <% @results.each do |result| %>
       <tr>
-        <th scope="row"><%= employee.id %></th>
-        <td><%= employee.position %></td>
-        <td><%= employee.last_name %> <%= employee.first_name %> <%= employee.patronymic %></td>
-        <td><%= employee.email %></td>
-        <td><%= employee.mobile_phone1 %></td>
-        <td><%= employee.birthday %></td>
+        <td><%= result.last_name %> <%= result.first_name %> <%= result.patronymic %></td>
+        <td><%= result.birthday %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-

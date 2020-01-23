@@ -6,20 +6,50 @@
     <div class="nav-bar-round" align="center">
       <ul class="nav flex-column" align="center">
         <li class="nav-item">
-          <%= link_to "Домашняя", root_path, class: "btn btn-main btn-xl #{active? root_path}" %>
+          <%= link_to "Главная", root_path, class: "btn btn-main btn-xl #{active? root_path}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Таблицей", table_path, class: "btn btn-main btn-xl #{active? table_path}" %>
+          <%= link_to "Таблица", table_path, class: "btn btn-main btn-xl #{active? table_path}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Плитками", tiles_path, class: "btn btn-main btn-xl #{active? tiles_path}" %>
+          <%= link_to "Плитки", tiles_path, class: "btn btn-main btn-xl #{active? tiles_path}" %>
         </li>
         <li class="nav-item">
-          <%= link_to "IP телефония", ip_phones_path, class: "btn btn-main btn-xl #{active? ip_phones_path}" %>
+          <%= link_to "IP-телефония", ip_phones_path, class: "btn btn-main btn-xl #{active? ip_phones_path}" %>
         </li>
         <li class="nav-item">
           <%= link_to "Добавить", new_employee_path, class: "btn btn-main btn-xl #{active? new_employee_path}" %>
         </li>
+        <div class="btn-group">
+          <button type="button" class="btn btn-main btn-xl <%= active? department_search_path %> dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Отдел
+          </button>
+          <div class="dropdown-menu bg-dark">
+            <%= link_to "Администрация", department_search_path(:department => "Администрация"), class: "dropdown-item" %>
+            <%= link_to "Бухгалтерия", department_search_path(:department => "Бухгалтерия"), class: "dropdown-item" %>
+            <%= link_to "Водитель", department_search_path(:department => "Водитель"), class: "dropdown-item" %>
+            <%= link_to "Завхоз", department_search_path(:department => "Завхоз"), class: "dropdown-item" %>
+            <%= link_to "Отдел ВЭД", department_search_path(:department => "Отдел ВЭД"), class: "dropdown-item" %>
+            <%= link_to "Отдел закупок", department_search_path(:department => "Отдел закупок"), class: "dropdown-item" %>
+            <%= link_to "Отдел интернет рекламы", department_search_path(:department => "Отдел интернет рекламы"), class: "dropdown-item" %>
+            <%= link_to "Отдел Крупной фасовки", department_search_path(:department => "Отдел Крупной фасовки"), class: "dropdown-item" %>
+            <%= link_to "Отдел логистики по сбыту", department_search_path(:department => "Отдел логистики по сбыту"), class: "dropdown-item" %>
+            <%= link_to "Отдел Маркетинга и рекламы", department_search_path(:department => "Отдел Маркетинга и рекламы"), class: "dropdown-item" %>
+            <%= link_to "Отдел Мелкой фасовки", department_search_path(:department => "Отдел Мелкой фасовки"), class: "dropdown-item" %>
+            <%= link_to "Отдел НИОКР: Физиология", department_search_path(:department => "Отдел НИОКР: Физиология"), class: "dropdown-item" %>
+            <%= link_to "Отдел персонала", department_search_path(:department => "Отдел персонала"), class: "dropdown-item" %>
+            <%= link_to "Отдел Регистрации продукции", department_search_path(:department => "Отдел Регистрации продукции"), class: "dropdown-item" %>
+            <%= link_to "Отдел системного администрирования", department_search_path(:department => "Отдел системного администрирования"), class: "dropdown-item" %>
+            <%= link_to "Отдел ЭПИС", department_search_path(:department => "Отдел ЭПИС"), class: "dropdown-item" %>
+            <%= link_to "Склад Перспективный", department_search_path(:department => "Склад Перспективный"), class: "dropdown-item" %>
+            <%= link_to "Склады и логистика", department_search_path(:department => "Склады и логистика"), class: "dropdown-item" %>
+            <%= link_to "Финансово-экономический отдел", department_search_path(:department => "Финансово-экономический отдел"), class: "dropdown-item" %>
+            <%= link_to "Юридический отдел", department_search_path(:department => "Юридический отдел"), class: "dropdown-item" %>
+            <!--<div class="dropdown-divider"></div>-->
+          </div>
+        </div>
+
+
       </ul>
       <hr>
       <%= form_tag(search_page_path, :method => "get",

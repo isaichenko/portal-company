@@ -3,6 +3,7 @@ class EmployeesController < ApplicationController
   before_action :all_employees, only: [:index, :table, :tiles]
 
   def index
+    @results = Employee.all
   end
 
   def ip_phone
@@ -28,6 +29,10 @@ class EmployeesController < ApplicationController
   end
 
   def tiles
+  end
+
+  def department_search
+    @results = Employee.all.where(department: params[:department]).order(:last_name)
   end
 
   def new

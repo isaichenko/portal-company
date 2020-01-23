@@ -203,7 +203,7 @@ body {
   border-width: 2px;
   border-color: #ff9933;
   border-radius: 60px 60px 60px 60px;
-  hight: 5rem;
+  height: 36rem;
 }
 
 .card-img-top{
@@ -219,4 +219,8 @@ body {
   /*opacity: 0.5;*/
   border-style: dashed;
   border-width: 4px;
+}
+
+.dropdown-item {
+  color: white;
 }
