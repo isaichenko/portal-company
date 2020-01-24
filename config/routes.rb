@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   #devise_for :admins
   devise_for :admins, path: '', path_names: { sign_in: 'admin', sign_out: 'logout' }
-  resources :employees
+  resources :employees do
+    put :sort, on: :collection
+  end
 
   get '/table',     		to: "employees#table",    		   as: :table
   get '/tiles',     		to: "employees#tiles",    		   as: :tiles

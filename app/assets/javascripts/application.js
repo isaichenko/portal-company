@@ -16,5 +16,7 @@
 //= require popper
 //= require bootstrap
 //= require gritter
+//= require jquery-ui
+//= require html.sortable
 //= require turbolinks
 //= require_tree .

@@ -1,6 +1,5 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:edit, :show, :update, :destroy]
-  before_action :all_employees, only: [:index, :table, :tiles]
 
   def index
     @results = Employee.where('extract(month from birthday) = ?', Time.now.month).order("extract(day from birthday)")
@@ -26,9 +25,19 @@ class EmployeesController < ApplicationController
   end
 
   def table
+    @employees = Employee.all.order(:last_name)
   end
 
   def tiles
+    @employees = Employee.by_sort_position
+  end
+
+  def sort
+    params[:order].each do |key, value|
+      Employee.find(value[:id]).update(sort_position: value[:sort_position])
+    end
+
+    render body: nil
   end
 
   def department_search
@@ -86,10 +95,6 @@ class EmployeesController < ApplicationController
   private
     def set_employee
       @employee = Employee.find(params[:id])
-    end
-
-    def all_employees
-      @employees = Employee.all.order(:last_name)
     end
 
     def employee_params
