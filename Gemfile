@@ -61,3 +61,5 @@ gem 'carrierwave', '~> 2.0'
 gem "font-awesome-rails"
 gem 'seed_dump', '~> 3.3', '>= 3.3.1'
 gem "roo", "~> 2.8.0"
+gem 'devise'
+gem "gritter", "1.2.0"

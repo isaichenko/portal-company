@@ -8,6 +8,7 @@
         <li class="nav-item">
           <%= link_to "Главная", root_path, class: "btn btn-main btn-xl #{active? root_path}" %>
         </li>
+
         <li class="nav-item">
           <%= link_to "Таблица", table_path, class: "btn btn-main btn-xl #{active? table_path}" %>
         </li>
@@ -16,9 +17,6 @@
         </li>
         <li class="nav-item">
           <%= link_to "IP-телефония", ip_phones_path, class: "btn btn-main btn-xl #{active? ip_phones_path}" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Добавить", new_employee_path, class: "btn btn-main btn-xl #{active? new_employee_path}" %>
         </li>
         <div class="btn-group">
           <button type="button" class="btn btn-main btn-xl <%= active? department_search_path %> dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,7 +46,14 @@
             <!--<div class="dropdown-divider"></div>-->
           </div>
         </div>
-
+        <% if admin_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Добавить", new_employee_path, class: "btn btn-main btn-xl #{active? new_employee_path}" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Выйти", destroy_admin_session_path, method: :delete, class: "btn btn-main btn-xl" %>
+          </li>
+        <% end %>
 
       </ul>
       <hr>

@@ -3,7 +3,7 @@ class EmployeesController < ApplicationController
   before_action :all_employees, only: [:index, :table, :tiles]
 
   def index
-    @results = Employee.all
+    @results = Employee.where('extract(month from birthday) = ?', Time.now.month).order("extract(day from birthday)")
   end
 
   def ip_phone
@@ -36,7 +36,11 @@ class EmployeesController < ApplicationController
   end
 
   def new
-    @employee = Employee.new
+    if admin_signed_in?
+      @employee = Employee.new
+    else
+      redirect_to root_path, alert: "Только администратор имеет право на это действие!"
+    end
   end
 
   def create

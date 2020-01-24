@@ -8,7 +8,7 @@ class CreateEmployees < ActiveRecord::Migration[5.2]
       t.string :mobile_phone2
       t.string :ip_phone
       t.string :email
-      t.string :birthday
+      t.date   :birthday
       t.string :position
       t.string :avatar
       t.string :department

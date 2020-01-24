@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  #devise_for :admins
+  devise_for :admins, path: '', path_names: { sign_in: 'admin', sign_out: 'logout' }
   resources :employees
 
   get '/table',     		to: "employees#table",    		   as: :table

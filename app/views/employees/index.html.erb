@@ -1,17 +1,20 @@
 <h2>Именинники в этом месяце</h2>
 
-<table class="table color-white">
-  <thead>
+<br>
+
+<table class="table color-white table-borderless">
+  <!--<thead>
     <tr>
       <th scope="col">ФИО</th>
       <th scope="col">Дата рождения</th>
     </tr>
-  </thead>
+  </thead>-->
   <tbody>
     <% @results.each do |result| %>
       <tr>
-        <td><%= result.last_name %> <%= result.first_name %> <%= result.patronymic %></td>
-        <td><%= result.birthday %></td>
+        <td><h3><%= result.birthday.strftime('%d.%m') %></h3></td>
+        <td><h3>-</h3></td>
+        <td><h3><%= result.last_name.capitalize() if result.last_name.present? %> <%= result.first_name.capitalize() if result.first_name.present? %> <%= result.patronymic.capitalize() if result.patronymic.present? %></h3></td>
       </tr>
     <% end %>
   </tbody>

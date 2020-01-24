@@ -15,7 +15,10 @@
     <!--<body>-->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-9 px-4">
           <%= render "shared/top_line" %>
+          <!--<p class="notice"><%# notice %></p>
+          <p class="alert"><%# alert %></p>-->
           <%= yield %>
+          <%= alerts %>
         </main>
       </div>
     </div>

@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "font-awesome";
+@import "gritter";
 
 @font-face {
    font-family: 'Comfortaa Regular';
@@ -223,4 +224,17 @@ body {
 
 .dropdown-item {
   color: white;
+}
+
+.alert {
+  color: red;
+}
+
+.login {
+  max-width: 23rem;
+}
+
+.form-control {
+  color: white !important;
+  text-color: white !important;
 }
