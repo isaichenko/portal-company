@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: [:edit, :show, :update, :destroy]
+  before_action :set_employee, only: [:edit, :update, :destroy]
 
   def index
     @results = Employee.where('extract(month from birthday) = ?', Time.now.month).order("extract(day from birthday)")
@@ -79,11 +79,13 @@ class EmployeesController < ApplicationController
     end
   end
 
+=begin  
   def show
     respond_to do |format|
       format.html {}
     end
   end
+=end
 
   def destroy
     @employee.destroy
@@ -94,7 +96,11 @@ class EmployeesController < ApplicationController
 
   private
     def set_employee
-      @employee = Employee.find(params[:id])
+      if admin_signed_in?
+        @employee = Employee.find(params[:id])
+      else
+        redirect_to root_path, alert: "Только администратор имеет право на это действие!"
+      end
     end
 
     def employee_params
