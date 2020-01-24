@@ -79,7 +79,7 @@ class EmployeesController < ApplicationController
   def destroy
     @employee.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Сотрудник был удален' }
+      format.html { redirect_to table_path, notice: 'Сотрудник был удален' }
     end
   end
 
