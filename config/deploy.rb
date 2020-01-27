@@ -5,8 +5,8 @@ set :application, "dolina-portal"
 set :repo_url, "git@github.com:isaichenko/dolina-portal.git"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :default_shell, :bash
-set :rvm_type, :user
+#set :default_shell, :bash
+#set :rvm_type, :user
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/dolina-portal"
 
