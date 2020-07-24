@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+  #http_basic_authenticate_with name: "user", password: "Dolina2020"#, except: :index
+
   before_action :set_employee, only: [:edit, :update, :destroy]
 
   def index
@@ -79,7 +81,7 @@ class EmployeesController < ApplicationController
     end
   end
 
-=begin  
+=begin
   def show
     respond_to do |format|
       format.html {}
