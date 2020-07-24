@@ -11,12 +11,20 @@ class ApplicationController < ActionController::Base
     #if request.remote_ip !~ /^192.168.0.\d{1,3}$/ || request.remote_ip != "31.128.72.125" || request.remote_ip != "95.46.157.148"
     if Rails.env == 'production'
       if request.remote_ip != "31.128.72.125" || request.remote_ip != "95.46.157.148"
-        if request.remote_ip !~ /^192.168.0.\d{1,3}$/
-          authenticate_or_request_with_http_basic 'Auth' do |name, password|
-            name == 'user' && password == 'Dolina2020'
-          end
-        end
+        basic_auth_method
+        return
       end
+    end
+    if Rails.env == 'production'
+      if request.remote_ip !~ /^192.168.0.\d{1,3}$/
+          basic_auth_method
+      end
+    end
+  end
+
+  def basic_auth_method
+    authenticate_or_request_with_http_basic 'Auth' do |name, password|
+      name == 'user' && password == 'Dolina2020'
     end
   end
 end
