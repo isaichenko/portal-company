@@ -6,20 +6,26 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_if_not_local
+    remote_ip = request.remote_ip
     #if Rails.env == 'production' && request.remote_addr !~ /^192.168.0.\d{1,3}$/
     #if request.remote_addr !~ /^192.168.0.\d{1,3}$/ || request.remote_addr !~ /^31.128.72.125$/ || request.remote_addr !~ /^95.46.157.148$/
     #if request.remote_ip !~ /^192.168.0.\d{1,3}$/ || request.remote_ip != "31.128.72.125" || request.remote_ip != "95.46.157.148"
     if Rails.env == 'production'
-      if request.remote_ip != "31.128.72.125" || request.remote_ip != "95.46.157.148"
+      unless remote_ip == "31.128.72.125" #|| request.remote_ip == "95.46.157.148"
+        basic_auth_method and return
+      end
+      unless remote_ip == "95.46.157.148"
+        basic_auth_method and return
+      end
+      if remote_ip !~ /^192.168.0.\d{1,3}$/
         basic_auth_method
-        return
       end
     end
-    if Rails.env == 'production'
-      if request.remote_ip !~ /^192.168.0.\d{1,3}$/
-          basic_auth_method
-      end
-    end
+    #if Rails.env == 'production'
+    #  if request.remote_ip !~ /^192.168.0.\d{1,3}$/
+    #      basic_auth_method
+    #  end
+    #end
   end
 
   def basic_auth_method
