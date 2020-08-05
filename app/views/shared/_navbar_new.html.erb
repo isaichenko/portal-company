@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-md navbar-light pl-0 pr-0">
+  <!--<nav class="nav d-flex justify-content-between">-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Главная", root_path, class: "nav-link #{active? root_path}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Коблево", koblevo_path, class: "nav-link #{active? koblevo_path}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Таблица", table_path, class: "nav-link #{active? table_path}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Плитки", tiles_path, class: "nav-link #{active? tiles_path}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "IP-телефония", ip_phones_path, class: "nav-link #{active? ip_phones_path}" %>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle <%= active? department_search_path %>" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Отдел</a>
+        <div class="dropdown-menu">
+          <%= link_to "Администрация", department_search_path(:department => "Администрация"), class: "dropdown-item" %>
+            <%= link_to "Бухгалтерия", department_search_path(:department => "Бухгалтерия"), class: "dropdown-item" %>
+            <%= link_to "Водитель", department_search_path(:department => "Водитель"), class: "dropdown-item" %>
+            <%= link_to "Завхоз", department_search_path(:department => "Завхоз"), class: "dropdown-item" %>
+            <%= link_to "Отдел ВЭД", department_search_path(:department => "Отдел ВЭД"), class: "dropdown-item" %>
+            <%= link_to "Отдел закупок", department_search_path(:department => "Отдел закупок"), class: "dropdown-item" %>
+            <%= link_to "Отдел интернет рекламы", department_search_path(:department => "Отдел интернет рекламы"), class: "dropdown-item" %>
+            <%= link_to "Отдел Крупной фасовки", department_search_path(:department => "Отдел Крупной фасовки"), class: "dropdown-item" %>
+            <%= link_to "Отдел логистики по сбыту", department_search_path(:department => "Отдел логистики по сбыту"), class: "dropdown-item" %>
+            <%= link_to "Отдел Маркетинга и рекламы", department_search_path(:department => "Отдел Маркетинга и рекламы"), class: "dropdown-item" %>
+            <%= link_to "Отдел Мелкой фасовки", department_search_path(:department => "Отдел Мелкой фасовки"), class: "dropdown-item" %>
+            <%= link_to "Отдел НИОКР: Физиология", department_search_path(:department => "Отдел НИОКР: Физиология"), class: "dropdown-item" %>
+            <%= link_to "Отдел персонала", department_search_path(:department => "Отдел персонала"), class: "dropdown-item" %>
+            <%= link_to "Отдел Регистрации продукции", department_search_path(:department => "Отдел Регистрации продукции"), class: "dropdown-item" %>
+            <%= link_to "Отдел системного администрирования", department_search_path(:department => "Отдел системного администрирования"), class: "dropdown-item" %>
+            <%= link_to "Отдел ЭПИС", department_search_path(:department => "Отдел ЭПИС"), class: "dropdown-item" %>
+            <%= link_to "Склад Перспективный", department_search_path(:department => "Склад Перспективный"), class: "dropdown-item" %>
+            <%= link_to "Склады и логистика", department_search_path(:department => "Склады и логистика"), class: "dropdown-item" %>
+            <%= link_to "Финансово-экономический отдел", department_search_path(:department => "Финансово-экономический отдел"), class: "dropdown-item" %>
+            <%= link_to "Юридический отдел", department_search_path(:department => "Юридический отдел"), class: "dropdown-item" %>
+        </div>
+      </li>
+      <% if admin_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Добавить", new_employee_path, class: "nav-link #{active? new_employee_path}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Выйти", destroy_admin_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= form_tag(search_page_path, :method => "get", class: 'form-inline mt-2 mt-md-0') do %>
+      <%= search_field_tag :search, params[:search], placeholder: "Поиск", class: "form-control mr-sm-2" %>
+      <%= button_tag "Поиск", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
+
+  </div>
+</nav>

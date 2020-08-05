@@ -2,7 +2,7 @@
 
 <br>
 
-<table class="table color-white table-borderless">
+<table class="table table-borderless">
   <!--<thead>
     <tr>
       <th scope="col">ФИО</th>
@@ -12,9 +12,9 @@
   <tbody>
     <% @results.each do |result| %>
       <tr>
-        <td><h3><%= result.birthday.strftime('%d.%m') %></h3></td>
-        <td><h3>-</h3></td>
-        <td><h3><%= result.last_name.capitalize() if result.last_name.present? %> <%= result.first_name.capitalize() if result.first_name.present? %> <%= result.patronymic.capitalize() if result.patronymic.present? %></h3></td>
+        <td><h4><%= result.birthday.strftime('%d.%m') %></h4></td>
+        <td><h4>-</h4></td>
+        <td><h4><%= result.last_name.capitalize() if result.last_name.present? %> <%= result.first_name.capitalize() if result.first_name.present? %> <%= result.patronymic.capitalize() if result.patronymic.present? %></h4></td>
       </tr>
     <% end %>
   </tbody>
