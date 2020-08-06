@@ -17,7 +17,13 @@
       <tr>
         <!--<th scope="row"><%# employee.id %></th>-->
         <td><%= employee.position %></td>
-        <td><%= employee.last_name.capitalize() if employee.last_name.present? %> <%= employee.first_name.capitalize() if employee.first_name.present? %> <%= employee.patronymic.capitalize() if employee.patronymic.present? %></td>
+        <td>
+          <%= link_to employee_path(employee) do %>
+            <%= employee.last_name.capitalize() if employee.last_name.present? %>
+            <%= employee.first_name.capitalize() if employee.first_name.present? %>
+            <%= employee.patronymic.capitalize() if employee.patronymic.present? %>
+          <% end %>
+        </td>
         <td><%= employee.ip_phone %></td>
         <% if admin_signed_in? %>
           <td>

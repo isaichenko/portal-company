@@ -17,10 +17,20 @@
     <% @employees.each do |employee| %>
       <tr>
         <td><%= employee.position %></td>
-        <td><%= employee.last_name.capitalize() if employee.last_name.present? %> <%= employee.first_name.capitalize() if employee.first_name.present? %> <%= employee.patronymic.capitalize() if employee.patronymic.present? %></td>
-        <td><%= employee.email %></td>
+        <td>
+          <%= link_to employee_path(employee) do %>
+            <%= employee.last_name.capitalize() if employee.last_name.present? %>
+            <%= employee.first_name.capitalize() if employee.first_name.present? %>
+            <%= employee.patronymic.capitalize() if employee.patronymic.present? %>
+          <% end %>
+        </td>
+        <td>
+          <a href="mailto:<%= employee.email %>">
+            <%= employee.email %>
+          </a>
+        </td>
         <td><%= employee.mobile_phone1 %> <%= employee.mobile_phone2 %></td>
-        <td><%= employee.birthday %></td>
+        <td><%= employee.birthday.strftime("%d %m %Y") if employee.birthday.present? %></td>
         <% if admin_signed_in? %>
           <td>
             <%= link_to "", edit_employee_path(employee), class: 'fa fa-edit fa-lg table-icons' %>

@@ -17,7 +17,13 @@
       <% @results.each do |result| %>
         <tr>
           <td><%= result.position %></td>
-          <td><%= result.last_name.capitalize() if result.last_name.present? %> <%= result.first_name.capitalize() if result.first_name.present? %> <%= result.patronymic.capitalize() if result.patronymic.present? %></td>
+          <td>
+            <%= link_to employee_path(result) do %>
+              <%= result.last_name.capitalize() if result.last_name.present? %>
+              <%= result.first_name.capitalize() if result.first_name.present? %>
+              <%= result.patronymic.capitalize() if result.patronymic.present? %>
+            <% end %>
+          </td>
           <td><%= result.email %></td>
           <td><%= result.mobile_phone1 %> <%= result.mobile_phone2 %></td>
           <td><%= result.birthday %></td>

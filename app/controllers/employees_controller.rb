@@ -71,6 +71,10 @@ class EmployeesController < ApplicationController
   def edit
   end
 
+  def show
+    @employee = Employee.find(params[:id])
+  end
+
   def update
     respond_to do |format|
       if @employee.update(employee_params)

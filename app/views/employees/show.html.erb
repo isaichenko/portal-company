@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-500 position-relative">
+      <div class="col-md-6 p-4 d-flex flex-column position-static">
+        <strong class="d-inline-block mb-2 text-primary">
+          <%= @employee.department %>
+        </strong>
+        <h3 class="mb-0">
+          <%= @employee.last_name.capitalize() if @employee.last_name.present? %>
+          <%= @employee.first_name.capitalize() if @employee.first_name.present? %>
+          <%= @employee.patronymic.capitalize() if @employee.patronymic.present? %>
+        </h3>
+        <div class="mb-1 text-muted"><%= @employee.birthday.strftime("%d %m %Y") %></div>
+        <h5><%= @employee.position %></h5>
+        <p class="card-text mb-auto">
+        <% if @employee.ip_phone.present? %>
+          IP-телефон: <b><%= @employee.ip_phone %></b><br>
+        <% end %>
+          Телефон: <b><%= @employee.mobile_phone1 %></b> <b><%= @employee.mobile_phone2 %></b><br>
+          E-mail: <b><%= @employee.email %></b>
+        </p>
+        <!--<a href="#" class="stretched-link">Continue reading</a>-->
+      </div>
+      <% if @employee.avatar.present? %>
+        <div class="col-md-6 d-lg-block">
+          <%= image_tag @employee.avatar.to_s, class: "bd-placeholder-img", width: "100%" %>
+        </div>
+      <% else %>
+        <div class="col-md-6 d-none d-lg-block">
+          <%= image_tag "empty_avatar.jpg", class: "bd-placeholder-img", width: "100%" %>
+        </div>
+      <% end %>
+        <!--<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+      </div>
+    </div>
+  </div>
+  <%= link_to "Домой", root_path, class: "btn btn-success" %>
+  <%= link_to "Таблица", table_path, class: "btn btn-success" %>
+  <%= link_to "Плитки", tiles_path, class: "btn btn-success" %>
+  <br><br>
+</div>

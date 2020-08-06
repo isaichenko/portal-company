@@ -2,7 +2,7 @@
 
 <br>
 
-<table class="table table-borderless">
+<table class="table table-striped">
   <!--<thead>
     <tr>
       <th scope="col">ФИО</th>
@@ -13,8 +13,15 @@
     <% @results.each do |result| %>
       <tr>
         <td><h4><%= result.birthday.strftime('%d.%m') %></h4></td>
-        <td><h4>-</h4></td>
-        <td><h4><%= result.last_name.capitalize() if result.last_name.present? %> <%= result.first_name.capitalize() if result.first_name.present? %> <%= result.patronymic.capitalize() if result.patronymic.present? %></h4></td>
+        <td>
+          <h4>
+            <%= link_to employee_path(result) do %>
+              <%= result.last_name.capitalize() if result.last_name.present? %>
+              <%= result.first_name.capitalize() if result.first_name.present? %>
+              <%= result.patronymic.capitalize() if result.patronymic.present? %>
+            <% end %>
+          </h4>
+        </td>
       </tr>
     <% end %>
   </tbody>

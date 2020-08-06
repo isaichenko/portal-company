@@ -350,3 +350,12 @@ h1, h2, h3, h4, h5, h6 {
 .bg-image {
   background-image: image-url("main-image.jpg");
 }
+
+.top-bottom {
+  position : absolute;
+  bottom   : 0;
+}
+
+.pb-24 {
+  padding-bottom: 20px;
+}
