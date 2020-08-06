@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "Главная", root_path, class: "nav-link #{active? root_path}" %>
+        <%= link_to "Главная", root_path, class: "nav-link pl-0 #{active? root_path}" %>
       </li>
       <!--<li class="nav-item">
         <%#= link_to "Коблево", koblevo_path, class: "nav-link #{active? koblevo_path}" %>
@@ -55,10 +55,10 @@
       <% end %>
     </ul>
 
-    <%= form_tag(search_page_path, :method => "get", class: 'form-inline mt-2 mt-md-0') do %>
-      <%= search_field_tag :search, params[:search], placeholder: "Поиск", class: "form-control mr-sm-2" %>
-      <%= button_tag "Поиск", class: "btn btn-outline-success my-2 my-sm-0" %>
-    <% end %>
+    <%#= form_tag(search_page_path, :method => "get", class: 'form-inline mt-2 mt-md-0') do %>
+      <%#= search_field_tag :search, params[:search], placeholder: "Поиск", class: "form-control mr-sm-2" %>
+      <%#= button_tag "Поиск", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <%# end %>
 
   </div>
 </nav>

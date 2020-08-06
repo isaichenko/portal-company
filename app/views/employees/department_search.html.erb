@@ -24,7 +24,11 @@
               <%= result.patronymic.capitalize() if result.patronymic.present? %>
             <% end %>
           </td>
-          <td><%= result.email %></td>
+          <td>
+            <a href="mailto:<%= result.email %>">
+              <%= result.email %>
+            </a>
+          </td>
           <td><%= result.mobile_phone1 %> <%= result.mobile_phone2 %></td>
           <td><%= result.birthday %></td>
           <% if admin_signed_in? %>
