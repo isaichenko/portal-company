@@ -8,7 +8,7 @@
       <th scope="col">Электронный адрес</th>
       <th scope="col">Телефон</th>
       <th scope="col">Дата рождения</th>
-      <% if admin_signed_in? %>
+      <% if current_user.role == "admin" %>
         <th scope="col"></th>
       <% end %>
     </tr>
@@ -31,7 +31,7 @@
         </td>
         <td><%= employee.mobile_phone1 %> <%= employee.mobile_phone2 %></td>
         <td><%= employee.birthday.strftime("%d %m %Y") if employee.birthday.present? %></td>
-        <% if admin_signed_in? %>
+        <% if current_user.role == "admin" %>
           <td>
             <%= link_to "", edit_employee_path(employee), class: 'fa fa-edit fa-lg table-icons' %>
             <%= link_to "", employee_path(employee), method: :delete, class: 'fa fa-trash fa-lg trash-icon', data: { confirm: 'Вы уверены?' } %>

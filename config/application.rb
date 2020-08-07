@@ -30,5 +30,9 @@ module Portal
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+    config.to_prepare do
+        Devise::SessionsController.layout "login"
+    end
   end
 end
+

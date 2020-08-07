@@ -47,7 +47,7 @@ class EmployeesController < ApplicationController
   end
 
   def new
-    if admin_signed_in?
+    if current_user.role == "admin"
       @employee = Employee.new
     else
       redirect_to root_path, alert: "Только администратор имеет право на это действие!"
@@ -102,7 +102,7 @@ class EmployeesController < ApplicationController
 
   private
     def set_employee
-      if admin_signed_in?
+      if current_user.role == "admin"
         @employee = Employee.find(params[:id])
       else
         redirect_to root_path, alert: "Только администратор имеет право на это действие!"

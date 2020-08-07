@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery with: :null_session
 
-  before_action :authenticate_if_not_local
+  #before_action :authenticate_if_not_local
+  before_action :authenticate_user!
 
   private
 
+=begin
   def authenticate_if_not_local
     remote_ip = request.remote_ip
     if Rails.env == 'production'
@@ -24,4 +26,5 @@ class ApplicationController < ActionController::Base
       name == 'user' && password == 'Dolina2020'
     end
   end
+=end
 end

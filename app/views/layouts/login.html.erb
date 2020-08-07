@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>ГК Долина · Портал</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <%#= video_tag(
+        'HardDrivePhotojpeg.mp4',
+        id: 'background',
+        autoplay: true,
+        loop: true,
+        muted: true,
+        poster: 'home_bg.png'
+        )
+        %>
+  <body class="text-center">
+    <%= yield %>
+    <%= alerts %>
+  </body>
+</html>

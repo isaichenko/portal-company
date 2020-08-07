@@ -45,20 +45,20 @@
             <%= link_to "Юридический отдел", department_search_path(:department => "Юридический отдел"), class: "dropdown-item" %>
         </div>
       </li>
-      <% if admin_signed_in? %>
+      <% if current_user.role == "admin" %>
         <li class="nav-item">
           <%= link_to "Добавить", new_employee_path, class: "nav-link #{active? new_employee_path}" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Выйти", destroy_admin_session_path, method: :delete, class: "nav-link" %>
-        </li>
       <% end %>
+      <li class="nav-item">
+        <%= link_to "Выйти", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
     </ul>
 
-    <%#= form_tag(search_page_path, :method => "get", class: 'form-inline mt-2 mt-md-0') do %>
-      <%#= search_field_tag :search, params[:search], placeholder: "Поиск", class: "form-control mr-sm-2" %>
-      <%#= button_tag "Поиск", class: "btn btn-outline-success my-2 my-sm-0" %>
-    <%# end %>
+    <%= form_tag(search_page_path, :method => "get", class: 'form-inline mt-2 mt-md-0') do %>
+      <%= search_field_tag :search, params[:search], placeholder: "Поиск", class: "form-control mr-sm-2" %>
+      <%= button_tag "Поиск", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
 
   </div>
 </nav>

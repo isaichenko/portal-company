@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-500 position-relative">
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-300 position-relative justify-content-between">
       <div class="col-md-6 p-4 d-flex flex-column position-static">
         <strong class="d-inline-block mb-2 text-primary">
           <%= @employee.department %>
@@ -22,11 +22,11 @@
         <!--<a href="#" class="stretched-link">Continue reading</a>-->
       </div>
       <% if @employee.avatar.present? %>
-        <div class="col-md-6 d-lg-block">
+        <div class="col-md-3 d-lg-block">
           <%= image_tag @employee.avatar.to_s, class: "bd-placeholder-img", width: "100%" %>
         </div>
       <% else %>
-        <div class="col-md-6 d-none d-lg-block">
+        <div class="col-md-3 d-none d-lg-block">
           <%= image_tag "empty_avatar.jpg", class: "bd-placeholder-img", width: "100%" %>
         </div>
       <% end %>

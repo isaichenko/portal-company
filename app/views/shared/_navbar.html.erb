@@ -48,7 +48,7 @@
             <!--<div class="dropdown-divider"></div>-->
           </div>
         </div>
-        <% if admin_signed_in? %>
+        <% if current_user.role == "admin" %>
           <li class="nav-item">
             <%= link_to "Добавить", new_employee_path, class: "btn btn-main btn-xl #{active? new_employee_path}" %>
           </li>
