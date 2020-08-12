@@ -3,7 +3,7 @@
     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-300 position-relative justify-content-between">
       <div class="col-md-6 p-4 d-flex flex-column position-static">
         <strong class="d-inline-block mb-2 text-primary">
-          <%= @employee.department %>
+          <%= @employee.department.name %>
         </strong>
         <h3 class="mb-0">
           <%= @employee.last_name.capitalize() if @employee.last_name.present? %>
