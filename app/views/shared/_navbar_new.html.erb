@@ -23,27 +23,34 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle <%= active? department_search_path %>" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Отдел</a>
         <div class="dropdown-menu">
-          <%= link_to "Администрация", department_search_path(:department => "Администрация"), class: "dropdown-item" %>
-            <%= link_to "Бухгалтерия", department_search_path(:department => "Бухгалтерия"), class: "dropdown-item" %>
-            <%= link_to "Водитель", department_search_path(:department => "Водитель"), class: "dropdown-item" %>
-            <%= link_to "Завхоз", department_search_path(:department => "Завхоз"), class: "dropdown-item" %>
-            <%= link_to "Отдел ВЭД", department_search_path(:department => "Отдел ВЭД"), class: "dropdown-item" %>
-            <%= link_to "Отдел закупок", department_search_path(:department => "Отдел закупок"), class: "dropdown-item" %>
-            <%= link_to "Отдел интернет рекламы", department_search_path(:department => "Отдел интернет рекламы"), class: "dropdown-item" %>
-            <%= link_to "Отдел Крупной фасовки", department_search_path(:department => "Отдел Крупной фасовки"), class: "dropdown-item" %>
-            <%= link_to "Отдел логистики по сбыту", department_search_path(:department => "Отдел логистики по сбыту"), class: "dropdown-item" %>
-            <%= link_to "Отдел Маркетинга и рекламы", department_search_path(:department => "Отдел Маркетинга и рекламы"), class: "dropdown-item" %>
-            <%= link_to "Отдел Мелкой фасовки", department_search_path(:department => "Отдел Мелкой фасовки"), class: "dropdown-item" %>
-            <%= link_to "Отдел НИОКР: Физиология", department_search_path(:department => "Отдел НИОКР: Физиология"), class: "dropdown-item" %>
-            <%= link_to "Отдел персонала", department_search_path(:department => "Отдел персонала"), class: "dropdown-item" %>
-            <%= link_to "Отдел Регистрации продукции", department_search_path(:department => "Отдел Регистрации продукции"), class: "dropdown-item" %>
-            <%= link_to "Отдел системного администрирования", department_search_path(:department => "Отдел системного администрирования"), class: "dropdown-item" %>
-            <%= link_to "Отдел ЭПИС", department_search_path(:department => "Отдел ЭПИС"), class: "dropdown-item" %>
-            <%= link_to "Склад Перспективный", department_search_path(:department => "Склад Перспективный"), class: "dropdown-item" %>
-            <%= link_to "Склады и логистика", department_search_path(:department => "Склады и логистика"), class: "dropdown-item" %>
-            <%= link_to "Финансово-экономический отдел", department_search_path(:department => "Финансово-экономический отдел"), class: "dropdown-item" %>
-            <%= link_to "Юридический отдел", department_search_path(:department => "Юридический отдел"), class: "dropdown-item" %>
+          <% Department.all.each do |department| %>
+            <%= link_to department.name, department_search_path(:department_id => department.id), class: "dropdown-item" %>
+            <%#= department.name %>
+          <% end %>
         </div>
+        <!--<div class="dropdown-menu">
+          <%= link_to "Администрация", department_search_path(:department => "Администрация"), class: "dropdown-item" %>
+          <%= link_to "Бухгалтерия", department_search_path(:department => "Бухгалтерия"), class: "dropdown-item" %>
+          <%= link_to "Водитель", department_search_path(:department => "Водитель"), class: "dropdown-item" %>
+          <%= link_to "Завхоз", department_search_path(:department => "Завхоз"), class: "dropdown-item" %>
+          <%= link_to "Отдел ВЭД", department_search_path(:department => "Отдел ВЭД"), class: "dropdown-item" %>
+          <%= link_to "Отдел закупок", department_search_path(:department => "Отдел закупок"), class: "dropdown-item" %>
+          <%= link_to "Отдел интернет рекламы", department_search_path(:department => "Отдел интернет рекламы"), class: "dropdown-item" %>
+          <%= link_to "Отдел Крупной фасовки", department_search_path(:department => "Отдел Крупной фасовки"), class: "dropdown-item" %>
+          <%= link_to "Отдел логистики по сбыту", department_search_path(:department => "Отдел логистики по сбыту"), class: "dropdown-item" %>
+          <%= link_to "Отдел Маркетинга и рекламы", department_search_path(:department => "Отдел Маркетинга и рекламы"), class: "dropdown-item" %>
+          <%= link_to "Отдел Мелкой фасовки", department_search_path(:department => "Отдел Мелкой фасовки"), class: "dropdown-item" %>
+          <%= link_to "Отдел НИОКР: Физиология", department_search_path(:department => "Отдел НИОКР: Физиология"), class: "dropdown-item" %>
+          <%= link_to "Отдел персонала", department_search_path(:department => "Отдел персонала"), class: "dropdown-item" %>
+          <%= link_to "Отдел Регистрации продукции", department_search_path(:department => "Отдел Регистрации продукции"), class: "dropdown-item" %>
+          <%= link_to "Отдел системного администрирования", department_search_path(:department => "Отдел системного администрирования"), class: "dropdown-item" %>
+          <%= link_to "Отдел ЭПИС", department_search_path(:department => "Отдел ЭПИС"), class: "dropdown-item" %>
+          <%= link_to "Склад Перспективный", department_search_path(:department => "Склад Перспективный"), class: "dropdown-item" %>
+          <%= link_to "Склады и логистика", department_search_path(:department => "Склады и логистика"), class: "dropdown-item" %>
+          <%= link_to "Финансово-экономический отдел", department_search_path(:department => "Финансово-экономический отдел"), class: "dropdown-item" %>
+          <%= link_to "Юридический отдел", department_search_path(:department => "Юридический отдел"), class: "dropdown-item" %>
+        </div>-->
+
       </li>
       <% if current_user.role == "admin" %>
         <li class="nav-item">

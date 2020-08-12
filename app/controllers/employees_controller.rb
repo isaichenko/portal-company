@@ -43,7 +43,7 @@ class EmployeesController < ApplicationController
   end
 
   def department_search
-    @results = Employee.all.where(department: params[:department]).order(:last_name)
+    @results = Employee.all.where(department_id: params[:department_id]).order(:last_name)
   end
 
   def new
