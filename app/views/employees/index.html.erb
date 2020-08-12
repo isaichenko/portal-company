@@ -12,15 +12,15 @@
   <tbody>
     <% @results.each do |result| %>
       <tr>
-        <td><h4><%= result.birthday.strftime('%d.%m') %></h4></td>
+        <td><h5><%= result.birthday.strftime('%d.%m') %></h5></td>
         <td>
-          <h4>
+          <h5>
             <%= link_to employee_path(result) do %>
               <%= result.last_name.capitalize() if result.last_name.present? %>
               <%= result.first_name.capitalize() if result.first_name.present? %>
               <%= result.patronymic.capitalize() if result.patronymic.present? %>
             <% end %>
-          </h4>
+          </h5>
         </td>
       </tr>
     <% end %>

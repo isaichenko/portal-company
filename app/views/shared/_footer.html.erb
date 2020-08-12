@@ -1,0 +1,41 @@
+<footer class="blog-footer">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <p align="left" class="green-dol"><small>Многолетний опыт группы компаний Долина по созданию эффективных технологий, предназначенных для увеличения урожая.</small></p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag "logo_new.svg", width: "25%" %>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-6" align="left">
+          <small>
+            <%= link_to "Главная", root_path, class: "green-dol" %>
+            <br>
+            <%= link_to "Таблица", table_path, class: "green-dol" %>
+            <br>
+            <%= link_to "Плитки", tiles_path, class: "green-dol" %>
+            <br>
+            <%= link_to "IP-телефония", ip_phones_path, class: "green-dol" %>
+          </small>
+        </div>
+        <div class="col-md-6" align="left">
+          <small>
+            <%= link_to "dolina.ua", "https://dolina.ua/", :target => "_blank", class: "green-dol" %>
+            <br>
+            <%= link_to "Выйти", destroy_user_session_path, method: :delete, class: "text-danger" %>
+            <br>
+            <br>
+            <%= link_to "", "https://www.youtube.com/channel/UCLBCFpdMKpIG3s39J5jAz3Q", :target => "_blank", class: "fa fa-youtube-play" %>
+            <%= link_to "", "https://www.facebook.com/dolina.group/", :target => "_blank", class: "fa fa-facebook" %>
+            <%= link_to "", "https://www.instagram.com/dolina_group/", :target => "_blank", class: "fa fa-instagram" %>
+          </small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</footer>
