@@ -57,15 +57,15 @@
       <%= form.text_field :position, class: 'form-control' %>
     </div>
 
+    <!--<div class="form-group">
+      <%#= form.label :"Отдел" %>
+      <%#= form.text_field :department, class: 'form-control' %>
+    </div>-->
+
+
+
     <div class="form-group">
       <%= form.label :"Отдел" %>
-      <%= form.text_field :department, class: 'form-control' %>
-    </div>
-
-
-
-    <div class="form-group">
-      <%= form.label :"Отдел NEW" %>
       <%= form.collection_select(:department_id, Department.all, :id, :name, {}, class: 'form-control') %>
     </div>
 
