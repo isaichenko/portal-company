@@ -22,7 +22,8 @@ body {
 
 body::after {
   content: "";
-  background: url(back20.gif);
+  /*background: url(back20.gif);*/
+  background-image: image-url('back20.gif');
   background-size: 100%;
   background-size: cover;
   opacity: 0.3;
