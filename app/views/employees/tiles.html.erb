@@ -16,8 +16,8 @@
         <!--<div class="mb-1 text-muted"><%#= employee.email %></div>
         <p class="mb-auto"><%#= employee.email %></p>-->
         <!--<a href="#" class="stretched-link">Подробнее</a>-->
+        <%= link_to "", employee_path(employee), class: "stretched-link" %>
         <%#= link_to "Подробнее", employee_path(employee), class: "stretched-link top-bottom pb-24" %>
-        <%= link_to "Подробнее", employee_path(employee), class: "stretched-link top-bottom pb-24" %>
       </div>
       <% if employee.avatar.present? %>
         <div class="col-md-6 d-lg-block">
