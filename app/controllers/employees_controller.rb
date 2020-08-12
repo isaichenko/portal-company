@@ -120,7 +120,8 @@ class EmployeesController < ApplicationController
                                       :birthday,
                                       :position,
                                       :avatar,
-                                      :department)
+                                      :department,
+                                      :department_id)
     end
 
 
